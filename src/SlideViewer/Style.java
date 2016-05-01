@@ -30,7 +30,7 @@ public class Style {
         } else if (cor.equalsIgnoreCase("dark_grey")) {
             return "\u001B[1;47m";
         } else {
-            return "Cor Invalida ";
+            return "Cor Invalida, tente outra opção.";
         }
     }
 }
