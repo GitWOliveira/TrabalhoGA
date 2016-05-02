@@ -1,8 +1,8 @@
 package SlideViewer;
 
-public class Slide {
+public class Slide implements Printable {
     private Element elem;
-    private String title;
+    private String title;   
     private int style;
     
     public Slide(String line){
@@ -15,6 +15,10 @@ public class Slide {
     
    public void addElement(Element elem){
        this.elem = elem;       
+   }
+   
+   public String print(){
+       return "";
    }
    
 }
