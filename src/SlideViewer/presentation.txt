@@ -7,7 +7,6 @@ style=2;WHITE;DARK_BLUE;WHITE;DARK_GRAY
 
 footer
 left=Apresentação sobre Slide Viewer
-center=#date;dd-MMM-yyyy
 right=#page
 /footer
 
