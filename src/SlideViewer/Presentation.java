@@ -3,6 +3,7 @@ package SlideViewer;
 public class Presentation {
     private Style style[];
     private int cont;
+    private Footer foo;
 
     //Quantidades de Styles que o presentation pode ter.
     public Presentation(int cont) {
@@ -22,4 +23,11 @@ public class Presentation {
         return style[index];
     }
 
+    public Footer getFoo() {
+        return foo;
+    }
+
+    public void setFoo(Footer foo) {
+        this.foo = foo;
+    }
 }
