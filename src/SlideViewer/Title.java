@@ -2,22 +2,17 @@ package SlideViewer;
 
 public class Title extends Element{
     private boolean capital = true; 
-    private Element titulo;
-    
-    public Title(Element titulo){
-        if(titulo == null){
-            capital = false;
-            print(capital);
-        }else{
-            capital = true;
-            this.titulo = titulo;
-            print(capital);
-        }
+
+    public Title(String e) {
+        super(e);
+        print();
     }
     
-    public Element print(boolean capital){        
+    @Override
+    public String print(){        
         if(capital == true)
-            return this.titulo;
+            
+            return super.print();
         else 
             return null;
     }
