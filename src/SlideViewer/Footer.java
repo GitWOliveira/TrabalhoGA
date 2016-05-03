@@ -5,8 +5,17 @@ package SlideViewer;
 public class Footer extends Element{
     private String left;
     private String right;
-    
 
+    public Footer(String e) {
+        super(e);
+        if(super.getText().startsWith("left")){
+            setLeft(super.getText().substring(5));
+        }
+        else if(super.getText().startsWith("rigth")){
+            setRight(super.getText().substring(6));
+        }
+    }
+    
     public String getLeft() {
         return left;
     }
