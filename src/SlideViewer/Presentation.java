@@ -6,7 +6,7 @@ public class Presentation {
 
     //Quantidades de Styles que o presentation pode ter.
     public Presentation(int cont) {
-        this.cont = cont;
+        style = new Style[cont];
     }
    
     public void addStyle(Style st) {
