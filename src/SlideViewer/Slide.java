@@ -2,15 +2,12 @@ package SlideViewer;
 
 public class Slide implements Printable {
     private Element elem;
-    private String title;   
-    private int style;
+    private Title title;   
+    private Style style;
     
-    public Slide(String line){
-        line = line.substring(6);
-        String[] cores = line.split(" ");
-        this.title = cores[0];
-        String temp = cores[1];
-        this.style = Integer.valueOf(temp); 
+    public Slide(Element line,Style s){
+        this.title = new Title(line);
+        this.style = s;
     }
     
    public void addElement(Element elem){
