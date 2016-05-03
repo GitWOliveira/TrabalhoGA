@@ -5,9 +5,10 @@ public class Slide implements Printable {
     private Title title;   
     private Style style;
     
-    public Slide(Element line,Style s){
-        this.title = new Title(line);
+    public Slide(String title,Style s,String contend){
+        this.title = new Title(title);
         this.style = s;
+        this.elem = new Element(contend);
     }
 
     public Element getElem() {
