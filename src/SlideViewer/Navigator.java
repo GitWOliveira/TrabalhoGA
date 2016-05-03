@@ -1,12 +1,13 @@
 package SlideViewer;
 
 public class Navigator<E> {
+    
     protected E[] elements;
     int numElements;
     private int current;
     
-    public Navigator(int maxSize){
-        elements = (E[])new Object[maxSize];
+    public Navigator(E[] el){
+        elements = (E[])new Object[el.length];
         numElements = 0;
     }
     
@@ -18,14 +19,14 @@ public class Navigator<E> {
         if(current < numElements)
             current += 1;
         else
-            throw new IllegalArgumentException("Não é possivel depositar um valor negativo! ");       
+            throw new IllegalArgumentException("Não é possivel avançar");       
     }
     
     public void previous(){
         if(current > 0)
             current -=1;
         else
-            throw new IllegalArgumentException("Não é possivel depositar um valor negativo! ");
+            throw new IllegalArgumentException("Não é possivel retroceder");
     }
     
     public void last(){
@@ -36,7 +37,7 @@ public class Navigator<E> {
         if(index > 0 && index < numElements)
             current = index;
         else
-         throw new IllegalArgumentException("Não é possivel depositar um valor negativo! ");   
+         throw new IllegalArgumentException("Não é possivel se mover para essa posição");   
     }
     
     public Slide getCurrent(){
