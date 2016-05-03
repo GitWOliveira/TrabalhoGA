@@ -10,13 +10,13 @@ public class Style {
     public Style(String line) {
         line = line.substring(6);
         String[] cores = line.split(";");
-        this.textColor = cores[0];
-        this.backgroundColor = cores[1];
-        this.titleTextColor = cores[2];
-        this.titleBackColor = cores[3];
+        this.textColor = conversion(cores[1]);
+        this.backgroundColor = conversion(cores[2]);
+        this.titleTextColor = conversion(cores[3]);
+        this.titleBackColor = conversion(cores[4]);
     }
 
-    public String conversion(String cor) {
+    private String conversion(String cor) {
         if (cor.equalsIgnoreCase("black")) {
             return "\u001B[30m";
         } else if (cor.equalsIgnoreCase("blue")) {
