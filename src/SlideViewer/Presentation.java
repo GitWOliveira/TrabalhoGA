@@ -6,8 +6,10 @@ public class Presentation {
    
     public void addStyle(Style st) {
         if(st != null){
-            style[cont] = st; 
-            cont++;
+            if(cont < style.length){
+                style[cont] = st; 
+                cont++;
+            }
         }           
     }
 
