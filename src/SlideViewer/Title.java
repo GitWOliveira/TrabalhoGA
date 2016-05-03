@@ -2,10 +2,10 @@ package SlideViewer;
 
 public class Title extends Element{
     private boolean capital = true; 
-    private String titulo;
+    private Element titulo;
     
-    public Title(String titulo){
-        if(titulo == null || "".equals(titulo.trim())){
+    public Title(Element titulo){
+        if(titulo == null){
             capital = false;
             print(capital);
         }else{
@@ -15,10 +15,10 @@ public class Title extends Element{
         }
     }
     
-    public String print(boolean capital){        
+    public Element print(boolean capital){        
         if(capital == true)
             return this.titulo;
         else 
-            return "";
+            return null;
     }
 }
