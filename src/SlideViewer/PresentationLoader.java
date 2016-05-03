@@ -8,8 +8,21 @@ import java.io.IOException;
 
 public class PresentationLoader {    
     
-    public void loaderPresentation() throws Exception{    
-       String filename = "presentation.txt";
+    public void loader(String filename) throws Exception{
+        //Dois estilos para a apresentação
+        Presentation p = new Presentation(2);
+        //Definição do Footer;
+        Footer foo = new Footer();
+        //Determinar onde inicia cada parte.     
+        Boolean beginStyle;
+        Boolean beginSlide;
+        Boolean beginFooter;
+        Boolean beginContend;
+        //Povoar as classes
+        Slide slides[] = new Slide[4];
+        //Navegador de slides
+        Navigator nav = new Navigator(slides);
+        //Ler arquivo;
         BufferedReader in = null;
         try {
             FileReader fr = new FileReader(filename);
@@ -21,26 +34,41 @@ public class PresentationLoader {
                 else if("/presentation".equals(line)){
                    break;                 
                 }
-                else if("presentation".equals(line)){
-                    continue;                                       
-                }
+                //Ajustes do style
                 else if("/styles".equals(line)){
-                    
+                    beginStyle = false;
                 }
-                else if("styles".equals(line)){
-                    Style estilo = new Style(line);
-                } 
+                else if("Styles".equals(line)){
+                    beginStyle = true;
+                }
+                else if(line.startsWith("style=")){
+                    if(beginStyle = true){
+                        Style s = new Style(line);
+                        p.addStyle(s);
+                    }
+                }            
+                //Ajuste footer
                 else if("/footer".equals(line)){
-                    continue;                    
+                    beginFooter = false;                   
                 }
                 else if("footer".equals(line)){
-                    Footer footer = new Footer(line);
+                    beginFooter = true;
                 }
+                else if(beginFooter = true){
+                    if(line.startsWith("left")){
+                        foo.setLeft(line.substring(5));
+                    }
+                    else{   
+                        foo.setRight(Integer.toString(nav.getCurrentIndex()));
+                    }
+                }
+                
+                //Ajuste Slide
                 else if("/slide".equals(line)){
-                    continue;                    
+                                     
                 }
                 else if("slide".equals(line)){
-                    Slide slide = new Slide(line);
+//                    
                 }
             
             }              
