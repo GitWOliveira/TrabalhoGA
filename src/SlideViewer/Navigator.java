@@ -11,6 +11,8 @@ public class Navigator<E> {
         numElements = 0;
     }
     
+
+    
     public void first(){
         current = 0;   
     }
@@ -44,5 +46,9 @@ public class Navigator<E> {
         if (current < 0  ||  current >= numElements)
             throw new IndexOutOfBoundsException();
   	return (Slide)elements[current];
+    }
+    
+    public int getCurrentIndex(){
+        return current;
     }
 }
