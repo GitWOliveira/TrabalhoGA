@@ -14,32 +14,42 @@ public class Navigator<E> {
 
     
     public void first(){
-        current = 0;   
+        getCurrent();   
     }
     
     public void next(){
-        if(current < numElements)
+        if(current < numElements){
             current += 1;
-        else
-            throw new IllegalArgumentException("Não é possivel avançar");       
+            getCurrent();
+        }
+        else{
+            throw new IllegalArgumentException("Não é possivel avançar"); 
+        }
     }
     
     public void previous(){
-        if(current > 0)
+        if(current > 0){
             current -=1;
-        else
+            getCurrent();
+        }
+        else{
             throw new IllegalArgumentException("Não é possivel retroceder");
+        }
     }
     
     public void last(){
         current = numElements;
+        getCurrent();
     }
     
     public void Goto(int index){
-        if(index > 0 && index < numElements)
+        if(index > 0 && index < numElements){
             current = index;
-        else
-         throw new IllegalArgumentException("Não é possivel se mover para essa posição");   
+            getCurrent();
+        }
+        else{
+         throw new IllegalArgumentException("Não é possivel se mover para essa posição");  
+        }
     }
     
     public Slide getCurrent(){
