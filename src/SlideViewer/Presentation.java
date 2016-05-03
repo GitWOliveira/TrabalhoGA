@@ -3,6 +3,11 @@ package SlideViewer;
 public class Presentation {
     private Style style[];
     private int cont;
+
+    //Quantidades de Styles que o presentation pode ter.
+    public Presentation(int cont) {
+        this.cont = cont;
+    }
    
     public void addStyle(Style st) {
         if(st != null){
