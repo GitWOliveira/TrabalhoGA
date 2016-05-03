@@ -11,7 +11,13 @@ package SlideViewer;
  */
 public class SlideViewerApp {
     public static void main(String[] args){
-        
+        try{
+            PresentationLoader pl = new PresentationLoader();
+            pl.loader();
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
     }
     
 }
