@@ -8,11 +8,9 @@ import java.io.IOException;
 
 public class PresentationLoader {    
     
-    public void loader(String filename) throws Exception{
+    public Presentation loader(String filename) throws Exception{
         //Dois estilos para a apresentação
         Presentation p = new Presentation(2);
-        //Definição do Footer;
-        Footer foo = new Footer();
         //Determinar onde inicia cada parte.     
         Boolean beginStyle;
         Boolean beginSlide;
@@ -55,23 +53,23 @@ public class PresentationLoader {
                     beginFooter = true;
                 }
                 else if(beginFooter = true){
-                    if(line.startsWith("left")){
-                        foo.setLeft(line.substring(5));
+                    if(p.getFoo() == null){
+                        Footer ft = new Footer(line);
+                        p.setFoo(ft);
                     }
-                    else{   
-                        foo.setRight(Integer.toString(nav.getCurrentIndex()));
+                    else{
+                        
                     }
+                    
                 }
-                
                 //Ajuste Slide
                 else if("/slide".equals(line)){
                                      
                 }
-                else if("slide".equals(line)){
-//                    
+                else if("slide".equals(line)){                   
                 }
             
-            }              
+            }
         } catch (FileNotFoundException e) {
             System.out.println("Arquivo \"" + filename + "\" não existe.");
         } catch (IOException e) {
@@ -83,6 +81,7 @@ public class PresentationLoader {
                 e.printStackTrace();
             }
         }
+        return p;
  }
 }
     
