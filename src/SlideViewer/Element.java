@@ -16,6 +16,19 @@ public class Element implements Printable {
         }
     }
     
+    public void setText(String n){
+        try{
+            this.text = n;
+        }
+        catch(Exception e){
+            System.out.println("Digite um valor válido");
+        }
+    }
+
+    public String getText() {
+        return text;
+    }
+    
     public String print(){
         return text;    
     }
