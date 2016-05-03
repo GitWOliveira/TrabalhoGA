@@ -1,14 +1,18 @@
 package SlideViewer;
 
 public class Presentation {
-    private Style style;
-
-    public void addStyle(Style style) {
-        this.style = style;
+    private Style style[];
+    private int cont;
+   
+    public void addStyle(Style st) {
+        if(st != null){
+            style[cont] = st; 
+            cont++;
+        }           
     }
 
     public Style getStyle(int index) {
-        return style;
+        return style[index];
     }
 
 }
