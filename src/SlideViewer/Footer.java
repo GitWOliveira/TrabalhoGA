@@ -19,7 +19,8 @@ public class Footer extends Element{
     }
      
     public String print(){
-     return"";
+        String Format = String.format("|%1$-10s %2$30s",left,right);
+        return Format;
     }    
     
 }
