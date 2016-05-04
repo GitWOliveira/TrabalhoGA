@@ -10,13 +10,13 @@ public class Style {
     public Style(String line) {
         line = line.substring(6);
         String[] cores = line.split(";");
-        this.textColor = conversion(cores[1]);
-        this.backgroundColor = conversion(cores[2]);
-        this.titleTextColor = conversion(cores[3]);
-        this.titleBackColor = conversion(cores[4]);
+        this.textColor = convertTextColor(cores[1]);
+        this.backgroundColor = convertBackColor(cores[2]);
+        this.titleTextColor = convertTextColor(cores[3]);
+        this.titleBackColor = convertBackColor(cores[4]);
     }
     
-    private String conversion(String cor) {
+    private String convertTextColor(String cor) {
         if (cor.equalsIgnoreCase("black")) {
             return "\u001B[30m";
         } else if (cor.equalsIgnoreCase("blue")) {
@@ -27,6 +27,24 @@ public class Style {
             return "\u001B[37m";
         } else if (cor.equalsIgnoreCase("dark_blue")) {
             return "\u001B[1;34m";
+        } else if (cor.equalsIgnoreCase("dark_gray")) {
+            return "\u001B[1;47m";
+        } else {
+            return "Cor Invalida ";
+        }
+    }
+    
+    private String convertBackColor(String cor){
+                if (cor.equalsIgnoreCase("black")) {
+            return "\u001B[40m";
+        } else if (cor.equalsIgnoreCase("blue")) {
+            return "\u001B[44m";
+        } else if (cor.equalsIgnoreCase("yellow")) {
+            return "\u001B[43m";
+        } else if (cor.equalsIgnoreCase("white")) {
+            return "\u001B[37m";
+        } else if (cor.equalsIgnoreCase("dark_blue")) {
+            return "\u001B[1;44m";
         } else if (cor.equalsIgnoreCase("dark_gray")) {
             return "\u001B[1;47m";
         } else {
