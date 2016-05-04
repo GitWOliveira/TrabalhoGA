@@ -35,7 +35,7 @@ public class ListIthem extends Element {
         if("#".equals(linha[0]))
             numerador = numerador+1;
         else if("##".equals(linha[0]))
-            letras = vetorLetras[i++]; 
+            letras = vetorLetras[i++];
     }
     
 }
