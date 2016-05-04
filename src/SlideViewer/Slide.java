@@ -51,7 +51,7 @@ public class Slide implements Printable {
                 if(linha == 1 && coluna == 0 || linha == 79 && coluna == 0)
                     System.out.println("|");
             }
-       } return print(); 
+       } return print();// Não entendi essa parte; 
    }
    
 }
