@@ -1,4 +1,4 @@
-﻿presentation
+presentation
 
 styles
 style=1;BLUE;BLACK;YELLOW;BLACK
