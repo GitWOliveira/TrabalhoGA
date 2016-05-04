@@ -7,13 +7,11 @@ public class Style {
     private String titleTextColor;
     private String titleBackColor;
 
-    public Style(String line) {
-        line = line.substring(6);
-        String[] cores = line.split(";");
-        this.textColor = convertTextColor(cores[1]);
-        this.backgroundColor = convertBackColor(cores[2]);
-        this.titleTextColor = convertTextColor(cores[3]);
-        this.titleBackColor = convertBackColor(cores[4]);
+    public Style(String textColor, String backgroundColor, String titleTextColor, String titleBackColor) {
+        setTextColor(textColor);
+        setBackgroundColor(backgroundColor);
+        setTitleTextColor(titleTextColor);
+        setTitleBackColor(titleBackColor);
     }
     
     private String convertTextColor(String cor) {
@@ -35,7 +33,7 @@ public class Style {
     }
     
     private String convertBackColor(String cor){
-                if (cor.equalsIgnoreCase("black")) {
+        if (cor.equalsIgnoreCase("black")) {
             return "\u001B[40m";
         } else if (cor.equalsIgnoreCase("blue")) {
             return "\u001B[44m";
@@ -57,7 +55,7 @@ public class Style {
     }
 
     public void setTextColor(String textColor) {
-        this.textColor = textColor;
+        this.textColor = convertTextColor(textColor);
     }
 
     public String getBackgroundColor() {
@@ -65,7 +63,7 @@ public class Style {
     }
 
     public void setBackgroundColor(String backgroundColor) {
-        this.backgroundColor = backgroundColor;
+        this.backgroundColor = convertBackColor(backgroundColor);
     }
 
     public String getTitleTextColor() {
@@ -73,7 +71,7 @@ public class Style {
     }
 
     public void setTitleTextColor(String titleTextColor) {
-        this.titleTextColor = titleTextColor;
+        this.titleTextColor = convertTextColor(titleTextColor);
     }
 
     public String getTitleBackColor() {
@@ -81,6 +79,6 @@ public class Style {
     }
 
     public void setTitleBackColor(String titleBackColor) {
-        this.titleBackColor = titleBackColor;
+        this.titleBackColor = convertBackColor(titleBackColor);
     }
 }
