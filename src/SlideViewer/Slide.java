@@ -1,24 +1,27 @@
 package SlideViewer;
 
 public class Slide implements Printable {
-    private Element elem;
+    private int contEle = 0;
     private Title title;   
     private Style style;
+    private Element[] elem = new Element[contEle];
+
     
-    public Slide(String title,Style s,String contend){
+    public Slide(String title,Style s,int numElement){
         this.title = new Title(title);
         this.style = s;
-        this.elem = new Element(contend);
+        this.contEle = numElement;
     }
 
-    public Element getElem() {
+    public Element[] getElem() {
         return elem;
     }
-
-    public void setElem(Element elem) {
-        this.elem = elem;
+    
+    public void addElement(Element elem){
+       this.elem = new Element[contEle];
+       contEle++;
     }
-
+    
     public Title getTitle() {
         return title;
     }
@@ -34,11 +37,6 @@ public class Slide implements Printable {
     public void setStyle(Style style) {
         this.style = style;
     }
-    
-    
-   public void addElement(Element elem){
-       this.elem = elem;       
-   }
    
    public String print(){
        char[][] matriz = new char[20][80];
