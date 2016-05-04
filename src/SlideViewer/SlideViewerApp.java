@@ -13,7 +13,8 @@ public class SlideViewerApp {
     public static void main(String[] args){
         try{
             PresentationLoader pl = new PresentationLoader();
-            pl.loader("presentation.txt");
+            Presentation pp = pl.loader("presentation.txt");
+            Navigator nav = new Navigator(pp.getSlide());
         }
         catch(Exception e){
             System.out.println(e);
