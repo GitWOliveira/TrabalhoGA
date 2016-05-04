@@ -23,7 +23,7 @@ title=Exemplo de lista de marcadores;
 0style=2
 content
 *Algum texto com marcador, pois a linha começa com caracter '*'.
-*Outro texto de primeiro nível
+*Outro texto de primeiro nível.
 ** Um texto de segundo para o item anterior, pois tem '**'.
 ** Mais um texto de segundo nível.
 *Voltando para texto de primeiro nível.
@@ -35,7 +35,7 @@ title=Exemplo de lista numerada;
 0style=2
 content
 #Algum texto com numeração, pois a linha começa com caracter '#'.
-#Outro texto de primeiro nível
+#Outro texto de primeiro nível.
 ## Um texto de segundo para o item anterior, pois tem '##'. Neste caso item é uma letra.
 ## Mais um texto de segundo nível.
 #Voltando para texto de primeiro nível.
@@ -51,8 +51,8 @@ content
 apresentação.
 *Considere o desenho do slide como uma matriz de caracteres
 ** Inicie ela preenchendo com espaços na cor de fundo definida pelo estilo.
-** Escreva a bordas na matriz
-** Preencha com conteúdos de texto
+** Escreva a bordas na matriz.
+** Preencha com conteúdos de texto.
 *Procedimento:
 ** Sistema iniciar solicitando caminho para o arquivo da apresentação.
 ** Primeiro slide da apresentação é mostrado conforme conteúdo e estilos definidos.
