@@ -14,7 +14,7 @@ public class SlideViewerApp {
         try{
             PresentationLoader pl = new PresentationLoader();
             Presentation pp = pl.loader("presentation.txt");
-            Navigator nav = new Navigator(pp.getSlide());
+            Navigator nav = new Navigator(pp.getSlide());           
         }
         catch(Exception e){
             System.out.println(e);
