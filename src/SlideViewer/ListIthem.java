@@ -26,17 +26,22 @@ public class ListIthem extends Element {
         this.order = order;
     }    
     
-    public void marcadores(String line){
+    public String marcadores(String line){
         int numerador=0, i=0;
-        char letras;        
+        char letras = 'i';        
         
             if(line.startsWith("#")){
-                numerador = numerador++;
-                line = numerador + line.substring(1);
+               numerador = numerador++;
+               line = numerador + line.substring(1);
             }
-            else if(line.startsWith("## "))
-                letras = vetorLetras[i++];
+            else if(line.startsWith("## ")){
+               letras = vetorLetras[order];
+               line = "/t" + Character.toString(letras) + line.substring(3);
+            }
+            else if(line.startsWith("** ")){
+                line = "/t" + line;
+            }
+            return line;
         }
-    
-    
 }
+
