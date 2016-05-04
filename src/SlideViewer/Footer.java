@@ -9,10 +9,10 @@ public class Footer extends Element{
     public Footer(String e) {
         super(e);
         if(super.getText().startsWith("left")){
-            setLeft(super.getText().substring(5));
+            setLeft(super.getText());
         }
         else if(super.getText().startsWith("rigth")){
-            setRight(super.getText().substring(6));
+            setRight(super.getText());
         }
     }
     
@@ -22,7 +22,7 @@ public class Footer extends Element{
     
     public void setLeft(String left) {
         try{
-          this.left = left;
+          this.left = left.substring(5);
         }
         catch(Exception e){
             System.out.println("Digite um valor válido");
@@ -35,7 +35,7 @@ public class Footer extends Element{
 
     public void setRight(String right) {
         try{
-            this.right = right;
+            this.right = right.substring(6);
         }
         catch(Exception e){
             System.out.println("Digite um ");
