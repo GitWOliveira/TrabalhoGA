@@ -9,62 +9,42 @@ import java.io.IOException;
 public class PresentationLoader {    
     
     public Presentation loader(String filename) throws Exception{
-        //Dois estilos para a apresentação
-        Presentation p = new Presentation(2);
-        //Determinar onde inicia cada parte.     
-        Boolean beginStyle;
-        Boolean beginSlide;
-        Boolean beginFooter;
-        Boolean beginContend;
-        //Povoar as classes
-        Slide slides[] = new Slide[4];
-        //Navegador de slides
-        Navigator nav = new Navigator(slides);
-        //Ler arquivo;
+        
+        //Leitura do arquivo
+        FileReader fr = new FileReader(filename);
         BufferedReader in = null;
+        in = new BufferedReader(fr);
+        String line;
+        
+        //Montando o slides
+        Slide slides[] = new Slide[4];
+        Footer fo;
+        Presentation p = new Presentation(2,slides);
+        String concatenar = null;
+        
         try {
-            FileReader fr = new FileReader(filename);
-            in = new BufferedReader(fr);
-            String line;
             while ((line = in.readLine()) != null) {
-                if("".equals(line)) 
-                    continue; // pula linha em branco!!
+                if("".equals(line)) {
+                } // pula linha em branco
                 else if("/presentation".equals(line)){
                    break;                 
                 }
                 //Ajustes do style
-                else if("/styles".equals(line)){
-                    beginStyle = false;
-                }
-                else if("Styles".equals(line)){
-                    beginStyle = true;
-                }
-                else if(line.startsWith("style=")){
-                    if(beginStyle = true){
-                        Style s = new Style(line);
-                        p.addStyle(s);
+                else if("style".equals(line) || "/style".equals(line)){
+                    Style st = readStyle(line);
+                    if(st != null){
+                        p.addStyle(st);
                     }
-                }            
+                }             
                 //Ajuste footer
-                else if("/footer".equals(line)){
-                    beginFooter = false;                   
-                }
-                else if("footer".equals(line)){
-                    beginFooter = true;
-                }
-                else if(beginFooter = true){
-                    if(p.getFoo() == null){
-                        Footer ft = new Footer(line);
-                        p.setFoo(ft);
+                else if(line.startsWith("left=") || line.startsWith("right")){
+                    fo = readFooter(line);
+                    if(fo != null){
+                        p.setFoo(fo);
                     }
-                    else{
-                        
-                    }
-                    
                 }
                 //Ajuste Slide
-                else if("/slide".equals(line)){
-                                     
+                else if("/slide".equals(line)){                                    
                 }
                 else if("slide".equals(line)){                   
                 }
@@ -82,7 +62,31 @@ public class PresentationLoader {
             }
         }
         return p;
- }
+    }
+    
+    public Style readStyle(String lines){
+        if("styles".equals(lines)){
+            return null;
+        }
+        else if(lines.startsWith("styles=")){
+            Style s = new Style(lines);
+            return s;
+        }
+        else{
+            return null;
+        } 
+    }
+    
+    public Footer readFooter(String lines){
+        try{
+            Footer f = new Footer(lines);
+            return f;
+        }
+        catch(Exception e){
+            System.out.println("Digite um numero válido");
+            return null;
+        }
+    }
 }
     
     
