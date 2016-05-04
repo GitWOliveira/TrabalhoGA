@@ -17,7 +17,11 @@ public class Slide implements Printable {
         return elem;
     }
     
-    public void addElement(Element elem){
+    public Element getElem(int idx){
+        return elem[idx];
+    }
+    
+    public void addElement(String elem){
        this.elem = new Element[contEle];
        contEle++;
     }
