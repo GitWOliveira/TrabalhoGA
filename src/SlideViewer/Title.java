@@ -1,19 +1,17 @@
 package SlideViewer;
 
 public class Title extends Element{
-    private boolean capital = true; 
+    private boolean capital = false; 
 
     public Title(String e) {
         super(e);
-        print();
     }
     
     @Override
     public String print(){        
-        if(capital == true)
-            
+        if(capital == true)         
             return super.print();
-        else 
-            return null;
+        else        
+            return super.getText().toUpperCase();
     }
 }
