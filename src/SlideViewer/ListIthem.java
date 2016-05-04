@@ -1,8 +1,5 @@
 package SlideViewer;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ListIthem extends Element {
     private boolean numbered;
     private int order;
