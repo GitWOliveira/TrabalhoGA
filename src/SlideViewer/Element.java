@@ -6,7 +6,6 @@ public class Element implements Printable {
     public Element(String e){
         try{
             this.text = e;
-            print();
         }
         catch(NullPointerException n){
             System.out.println("Valores inválido, digite um valor correto");
