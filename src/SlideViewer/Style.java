@@ -15,7 +15,7 @@ public class Style {
         this.titleTextColor = conversion(cores[3]);
         this.titleBackColor = conversion(cores[4]);
     }
-
+    
     private String conversion(String cor) {
         if (cor.equalsIgnoreCase("black")) {
             return "\u001B[30m";
@@ -32,5 +32,37 @@ public class Style {
         } else {
             return "Cor Invalida ";
         }
+    }
+    
+    public String getTextColor() {
+        return textColor;
+    }
+
+    public void setTextColor(String textColor) {
+        this.textColor = textColor;
+    }
+
+    public String getBackgroundColor() {
+        return backgroundColor;
+    }
+
+    public void setBackgroundColor(String backgroundColor) {
+        this.backgroundColor = backgroundColor;
+    }
+
+    public String getTitleTextColor() {
+        return titleTextColor;
+    }
+
+    public void setTitleTextColor(String titleTextColor) {
+        this.titleTextColor = titleTextColor;
+    }
+
+    public String getTitleBackColor() {
+        return titleBackColor;
+    }
+
+    public void setTitleBackColor(String titleBackColor) {
+        this.titleBackColor = titleBackColor;
     }
 }
