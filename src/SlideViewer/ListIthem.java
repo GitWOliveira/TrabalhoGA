@@ -5,18 +5,17 @@ public class ListIthem extends Element {
     private int order;
     private char vetorLetras[] = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
 
-    public ListIthem(boolean numbered, int order, String e) {
+    public ListIthem(String e) {
         super(e);
-        this.numbered = numbered;
-        this.order = order;
     }
     
     public boolean isNumbered() {
-        return numbered;
-    }
-
-    public void setNumbered(boolean numbered) {
-        this.numbered = numbered;
+        if(numbered){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     public int getOrder() {
@@ -30,12 +29,14 @@ public class ListIthem extends Element {
     public void marcadores(String line){
         int numerador=0, i=0;
         char letras;        
-        String[] linha = line.split(" ");
         
-        if("#".equals(linha[0]))
-            numerador = numerador+1;
-        else if("##".equals(linha[0]))
-            letras = vetorLetras[i++];
-    }
+            if(line.startsWith("#")){
+                numerador = numerador++;
+                line = numerador + line.substring(1);
+            }
+            else if(line.startsWith("## "))
+                letras = vetorLetras[i++];
+        }
+    
     
 }
