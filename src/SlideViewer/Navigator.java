@@ -14,7 +14,9 @@ public class Navigator<E> {
 
     
     public void first(){
-        getCurrent();   
+        if(elements == null)
+            throw new IndexOutOfBoundsException();        
+        getCurrent();        
     }
     
     public void next(){
@@ -23,7 +25,7 @@ public class Navigator<E> {
             getCurrent();
         }
         else{
-            throw new IllegalArgumentException("Não é possivel avançar"); 
+            throw new IllegalArgumentException("Não tem mais slides! "); 
         }
     }
     
@@ -38,6 +40,8 @@ public class Navigator<E> {
     }
     
     public void last(){
+        if(elements == null)
+            throw new IndexOutOfBoundsException();
         current = numElements;
         getCurrent();
     }
