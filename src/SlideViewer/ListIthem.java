@@ -34,6 +34,7 @@ public class ListIthem extends Element {
                numerador = numerador++;
                line = numerador + line.substring(1);
             }
+            //Usar a notação ASCCI para obter as lettras, sendo que 65 é "A", podemos ir adicionando de acordo com o order.
             else if(line.startsWith("## ")){
                letras = vetorLetras[order];
                line = "/t" + Character.toString(letras) + line.substring(3);
