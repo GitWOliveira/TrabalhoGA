@@ -12,7 +12,7 @@ public class PresentationLoader {
         
         //Leitura do arquivo
         FileReader fr = new FileReader(filename);
-        BufferedReader in = null;
+        BufferedReader in;
         in = new BufferedReader(fr);
         String line;
         
@@ -29,11 +29,8 @@ public class PresentationLoader {
                    break;                 
                 }
                 //Ajustes do style
-                else if(line.startsWith("style=")){
-                    Style st = readStyle(line);
-                    if(st != null){
-                        p.addStyle(st);
-                    }
+                else if("styles".equals(line)){
+                    readStyle(line, in,p);
                 }             
                 //Ajuste footer
                 else if(line.startsWith("left=") || line.startsWith("right")){
@@ -62,19 +59,31 @@ public class PresentationLoader {
         return p;
     }
     
-    public Style readStyle(String lines){
-        if("styles".equals(lines)){
-            return null;
-        }
-        if(lines.startsWith("style=")){
-            Style s = new Style(lines);
-            return s;
-        }
-        else{
-            return null;
-        } 
+    public void readStyle(String lines,BufferedReader in,Presentation p){
+        try{
+            while ((lines = in.readLine()) != null){
+        
+                if("/styles".equals(lines)){
+                    break;
+                }
+                if(lines.startsWith("style=")){
+                    lines = lines.substring(6);
+                    String[] cores = lines.split(";");
+                    Style s = new Style(cores[0],cores[1],cores[2],cores[3]); 
+                    p.addStyle(s);
+                }
+            }
+            } catch (IOException e) {
+                System.out.println("Erro na leitura do arquivo.");
+            } finally {
+                try {
+                    in.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
     }
-    
+
     public Footer readFooter(String lines,Footer f){
         try{
             if(f == null){
@@ -118,9 +127,31 @@ public class PresentationLoader {
         }
         
         if(lines.contains("*")){
-            
+            ListIthem list = new ListIthem(lines);
+            for(int i = 0;i < s.length;i++){
+                for(int j=0;j < s[i].getElem().length;j ++){
+                   if(s[i].getElem(j) == null) 
+                    s[i].addElement(list.marcadores(lines));
+                   break;
+                }
+
+            }
         }
         
+        else if(lines.startsWith("0") || lines.startsWith("1")){
+            for(int i = 0;i < s.length;i++){
+                if(s[i].getStyle() == null && lines.startsWith("0")){
+                    s[i].setStyle(p.getStyle(0));
+                }
+                else{
+                   s[i].setStyle(p.getStyle(1)); 
+                }
+            }
+         }
+        
+        else if(lines.startsWith("#") || lines.startsWith("##")){
+            
+        }
         return s;
     }
 }
