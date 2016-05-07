@@ -5,13 +5,19 @@ public class Title extends Element{
 
     public Title(String e) {
         super(e);
+        toUperTittle(e);
+    }
+    
+    public void toUperTittle(String tittle){
+        if(capital){
+        }
+        else{
+            super.setText(tittle.toUpperCase());
+        }
     }
     
     @Override
-    public String print(){        
-        if(capital == true)         
-            return super.print();
-        else        
-            return super.getText().toUpperCase();
+    public String print(){              
+       return super.print();   
     }
 }
