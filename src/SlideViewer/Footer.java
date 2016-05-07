@@ -6,9 +6,9 @@ public class Footer extends Element{
     private String left;
     private String right;
 
-    public Footer(String left, String right, String e) {
+    public Footer(String left, String right, String center) {
         //Será o center
-        super(e);
+        super(center);
         this.left = left;
         this.right = right;
     }
@@ -16,7 +16,7 @@ public class Footer extends Element{
     public String getLeft() {
         return left;
     }
-    
+     
     public void setLeft(String left) {
         try{
           this.left = left.substring(5);
@@ -25,7 +25,20 @@ public class Footer extends Element{
             System.out.println("Digite um valor válido");
         }
     }
-
+    
+    public void setCenter(String center){
+        try{
+            super.setText(center);
+        }
+        catch(Exception e){
+            System.out.println("Digite um valor válido");
+        }
+    }
+    
+    public String getCenter(){
+        return super.getText();
+    }
+    
     public String getRight() {
            return right;
     }
