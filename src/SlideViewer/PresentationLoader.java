@@ -18,6 +18,8 @@ public class PresentationLoader {
         
         //Quantidade de slides
         Slide slides[] = new Slide[4];
+        //Slides que está criando
+        int nSlide = 0;
         //Variavel que será montada e retornada pelo método
         Presentation p = null;
         
@@ -41,7 +43,7 @@ public class PresentationLoader {
                 }
                 //Ajuste Slide
                 else if("slide".equals(line)){
-                   readSlide(in,p);
+                   readSlide(in,p,nSlide);
                 }
             
             }
@@ -106,61 +108,56 @@ public class PresentationLoader {
         }
     }
     
-    public void readSlide(BufferedReader in,Presentation p){
+    public void readSlide(BufferedReader in,Presentation p,int nslide){
         String lines;
+        try{
+            while ((lines = in.readLine()) != null){
         
-//        if(lines.startsWith("title")){
-//            String titulo = lines.substring(6);
-//            Title t = new Title(titulo);
-//            int i;
-//            for(i = 0;i < s.length;i++){
-//                if(s[i].getTitle() == null){
-//                   s[i].setTitle(t);
-//                   break;
-//                }
-//            }       
-//        }
-//        
-//        if(lines.contains("style")){
-//            for(int i = 0;i < s.length;i++){
-//                if(s[i].getStyle() == null){
-//                    if(lines.startsWith("0"))
-//                      s[i].setStyle(p.getStyle(0));
-//                    else{
-//                      s[i].setStyle(p.getStyle(1));
-//                    }
-//                }
-//            }
-//        }
-//        
-//        if(lines.contains("*")){
-//            ListIthem list = new ListIthem(lines);
-//            for(int i = 0;i < s.length;i++){
-//                for(int j=0;j < s[i].getElem().length;j ++){
-//                   if(s[i].getElem(j) == null) 
-//                    s[i].addElement(list.marcadores(lines));
-//                   break;
-//                }
-//
-//            }
-//        }
-//        
-//        else if(lines.startsWith("0") || lines.startsWith("1")){
-//            for(int i = 0;i < s.length;i++){
-//                if(s[i].getStyle() == null && lines.startsWith("0")){
-//                    s[i].setStyle(p.getStyle(0));
-//                }
-//                else{
-//                   s[i].setStyle(p.getStyle(1)); 
-//                }
-//            }
-//         }
-//        
-//        else if(lines.startsWith("#") || lines.startsWith("##")){
-//            
-//        }
+                if("/slide".equals(lines)){
+                    break;
+                }         
+                else if(lines.startsWith("title=")){
+                    //Retirado o title=
+                    Title t = new Title(lines.substring(6));
+                    p.getSlide(nslide).setTitle(t);                    
+                }
+                else if(lines.startsWith("0") || lines.startsWith("1")){
+                    /*Pelo um slide específico
+                    Atribui o valor de style dele com base nos valores de style armazenamos no presentation
+                    Que podem ser obtidos por 0 ou 1*/
+                    p.getSlide(nslide).setStyle(p.getStyle(Integer.parseInt(lines.substring(0, 0))));
+                }
+                else if("contend".equals(lines)){
+                    readContend(in,p);
+                }
+            }
+        } catch (IOException e) {
+                System.out.println("Erro na leitura do arquivo.");
+        }
+    }
+    
+    public void readContend(BufferedReader in, Presentation p){
+        String lines;
+        try{
+            while ((lines = in.readLine()) != null){
+                if("/contend".equals(lines)){
+                    break;
+                }
+                else if(lines.startsWith("* ")){
+                    
+                }
+                else if(lines.startsWith("** ")){
+                    
+                }
+                else if(lines.startsWith("#")){
+                    
+                }
+                else if(lines.startsWith("## ")){
+                    
+                }
+            }
+        } catch (IOException e) {
+                System.out.println("Erro na leitura do arquivo.");
+        }
     }
 }
-    
-    
-
