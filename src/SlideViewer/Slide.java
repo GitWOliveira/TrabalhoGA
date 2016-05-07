@@ -7,12 +7,6 @@ public class Slide implements Printable {
     private Element[] elem = new Element[contEle];
 
     
-    public Slide(String title,Style s,int numElement){
-        this.title = new Title(title);
-        this.style = s;
-        this.contEle = numElement;
-    }
-
     public Element[] getElem() {
         return elem;
     }
