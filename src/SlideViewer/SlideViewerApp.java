@@ -6,7 +6,8 @@ public class SlideViewerApp {
     public static void main(String[] args){
         try {
           PresentationLoader pl = new PresentationLoader();
-          Presentation pp = pl.loader("presentation.txt");            
+          Presentation pp = pl.loader("presentation.txt");    
+          SlideDesigner sd = new SlideDesigner();
           Navigator nav = new Navigator(pp.getSlide());
             
             
