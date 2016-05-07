@@ -24,6 +24,10 @@ public class Presentation {
     public Slide[] getSlide() {
         return slide;
     }
+    
+    public Slide getSlide(int idx){
+        return this.slide[idx];
+    }
 
     public void setSlide(Slide[] slide) {
         this.slide = slide;
