@@ -21,16 +21,20 @@ public class Presentation {
         }           
     }
 
-    public Slide[] getSlide() {
+    public Slide[] getSlides() {
         return slide;
+    }
+
+    public void setSlides(Slide[] slide) {
+        this.slide = slide;
     }
     
     public Slide getSlide(int idx){
         return this.slide[idx];
     }
-
-    public void setSlide(Slide[] slide) {
-        this.slide = slide;
+    
+    public void setSlide(Slide s,int idx){
+        this.slide[idx] = s;
     }
 
     public Style getStyle(int index) {
