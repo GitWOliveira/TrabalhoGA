@@ -33,20 +33,20 @@ public class PresentationLoader {
                 else if("presentation".equals(line)){
                     p = new Presentation(2,slides);
                 }
-                //Ajustes do style
+                //Montando style
                 else if("styles".equals(line)){
-                    if(nSlide < slides.length){
-                        readStyle(in,p);
-                        nSlide++;
-                    }
+                    readStyle(in,p);
                 }             
-                //Ajuste footer
+                //Montando footer
                 else if("footer".equals(line)){
                     readFooter(in,p);
                 }
-                //Ajuste Slide
+                //Montando slide
                 else if("slide".equals(line)){
-                   readSlide(in,p,nSlide);
+                   if(nSlide < slides.length){
+                    readSlide(in,p,nSlide);
+                    nSlide++;
+                   }
                 }
             
             }
@@ -93,8 +93,7 @@ public class PresentationLoader {
         
                 if("/footer".equals(lines)){
                     break;
-                }         
-                
+                }                
                 if(lines.startsWith("left=")){
                   f.setLeft(lines.substring(5));
                 }
@@ -113,6 +112,7 @@ public class PresentationLoader {
     
     public void readSlide(BufferedReader in,Presentation p,int nslide){
         String lines;
+        Slide s = new Slide();
         try{
             while ((lines = in.readLine()) != null){
         
@@ -122,24 +122,23 @@ public class PresentationLoader {
                 else if(lines.startsWith("title=")){
                     //Retirado o title=
                     Title t = new Title(lines.substring(6));
-                    p.getSlide(nslide).setTitle(t);                    
+                    s.setTitle(t);
                 }
                 else if(lines.startsWith("0") || lines.startsWith("1")){
-                    /*Pelo um slide específico
-                    Atribui o valor de style dele com base nos valores de style armazenamos no presentation
-                    Que podem ser obtidos por 0 ou 1*/
-                    p.getSlide(nslide).setStyle(p.getStyle(Integer.parseInt(lines.substring(0, 0))));
+                    /*Seta o Style de s, pegando os style armazenados no presentation 0 ou 1*/
+                    s.setStyle(p.getStyle(Integer.parseInt(lines.substring(0,1))));
                 }
-                else if("contend".equals(lines)){
-                    readContend(in,p);
+                else if("content".equals(lines)){
+                    readContend(in,s);
                 }
             }
+        p.setSlide(s, nslide);
         } catch (IOException e) {
                 System.out.println("Erro na leitura do arquivo.");
         }
     }
     
-    public void readContend(BufferedReader in, Presentation p){
+    public void readContend(BufferedReader in, Slide s){
         String lines;
         try{
             while ((lines = in.readLine()) != null){
