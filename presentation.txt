@@ -12,15 +12,15 @@ right=#page
 /footer
 
 slide
-title=Apresentação sobre Slide Viewer;
+title=Apresentação sobre Slide Viewer
 1style=1
 content
-*Especificação do arquivo e estrutura de dados
+* Especificação do arquivo e estrutura de dados
 /content
 /slide
 
 slide
-title=Exemplo de lista de marcadores;
+title=Exemplo de lista de marcadores
 0style=2
 content
 * Algum texto com marcador, pois a linha começa com caracter '*'.
@@ -32,7 +32,7 @@ content
 /slide
 
 slide
-title=Exemplo de lista numerada;
+title=Exemplo de lista numerada
 0style=2
 content
 # Algum texto com numeração, pois a linha começa com caracter '#'.
@@ -44,7 +44,7 @@ content
 /slide
 
 slide
-title=Outras considerações;
+title=Outras considerações
 0style=2
 content
 * Imprima slides dentro de bordas (80 colunas).
