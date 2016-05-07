@@ -35,7 +35,10 @@ public class PresentationLoader {
                 }
                 //Ajustes do style
                 else if("styles".equals(line)){
-                    readStyle(in,p);
+                    if(nSlide < slides.length){
+                        readStyle(in,p);
+                        nSlide++;
+                    }
                 }             
                 //Ajuste footer
                 else if("footer".equals(line)){
