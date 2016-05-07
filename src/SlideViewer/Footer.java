@@ -19,7 +19,7 @@ public class Footer extends Element{
      
     public void setLeft(String left) {
         try{
-          this.left = left.substring(5);
+          this.left = left;
         }
         catch(Exception e){
             System.out.println("Digite um valor válido");
@@ -45,10 +45,10 @@ public class Footer extends Element{
 
     public void setRight(String right) {
         try{
-            this.right = right.substring(6);
+            this.right = right;
         }
         catch(Exception e){
-            System.out.println("Digite um ");
+            System.out.println("Digite uma entrada válida");
         }
     }
     
