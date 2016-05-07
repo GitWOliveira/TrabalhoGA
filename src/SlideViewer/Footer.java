@@ -6,14 +6,11 @@ public class Footer extends Element{
     private String left;
     private String right;
 
-    public Footer(String e) {
+    public Footer(String left, String right, String e) {
+        //Será o center
         super(e);
-        if(super.getText().startsWith("left")){
-            setLeft(super.getText());
-        }
-        else if(super.getText().startsWith("rigth")){
-            setRight(super.getText());
-        }
+        this.left = left;
+        this.right = right;
     }
     
     public String getLeft() {
@@ -41,10 +38,12 @@ public class Footer extends Element{
             System.out.println("Digite um ");
         }
     }
+    
+    
      
     @Override
     public String print(){
-        String Format = String.format("|%1$-10s %2$30s",left,right);
+        String Format = String.format("|%1$-10s %2$30s %3$50s",left,super.getText(),right);
         return Format;
     }    
     
