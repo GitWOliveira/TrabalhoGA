@@ -140,6 +140,7 @@ public class PresentationLoader {
     
     public void readContend(BufferedReader in,Slide s){
         String lines;
+        int cont =1;
         try{
             while ((lines = in.readLine()) != null){
                 if("/content".equals(lines)){
@@ -147,7 +148,9 @@ public class PresentationLoader {
                 }
                 else {
                     ListIthem ls = new ListIthem(lines);
+                    ls.setOrder(cont);
                     s.addElement(ls.marcadores());
+                    cont++;
                 }
             }
         } catch (IOException e) {
