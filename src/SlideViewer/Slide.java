@@ -4,7 +4,8 @@ public class Slide implements Printable {
     private int contEle = 0;
     private Title title;   
     private Style style;
-    private Element[] elem = new Element[contEle];
+    //Começa com apenas 1 elememento/tópico
+    private Element[] elem = new Element[1];
 
     
     public Element[] getElem() {
@@ -15,9 +16,28 @@ public class Slide implements Printable {
         return elem[idx];
     }
     
-    public void addElement(String elem){
-       this.elem = new Element[contEle];
-       contEle++;
+    public void addElement(String texto){
+        try{
+            //Add um elemento no espaço
+            elem[contEle] = new Element(texto);
+            contEle++;
+        }
+        //Caso seja necessário adicionar mais um elemento
+        catch(ArrayIndexOutOfBoundsException e){
+           //Copia os elementos atuais para swap. 
+           Element[] swap = new Element[elem.length];
+           swap = elem;
+           //Criar um array com mais 1 espaço vazio;
+           elem = new Element[++contEle];
+           //Copia os elementos de swap para o novo array
+           System.arraycopy(swap, 0, elem, 0, swap.length);
+           //Adiciona o elemento desejado no novo espaço.
+           elem[contEle - 1] = new Element(texto);
+        }
+        catch(Exception e){
+            System.out.println("Erro ao adicionar o elemento");
+        }
+
     }
     
     public Title getTitle() {
