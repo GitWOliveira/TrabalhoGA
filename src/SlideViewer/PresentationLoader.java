@@ -138,24 +138,16 @@ public class PresentationLoader {
         }
     }
     
-    public void readContend(BufferedReader in, Slide s){
+    public void readContend(BufferedReader in,Slide s){
         String lines;
         try{
             while ((lines = in.readLine()) != null){
-                if("/contend".equals(lines)){
+                if("/content".equals(lines)){
                     break;
                 }
-                else if(lines.startsWith("* ")){
-                    
-                }
-                else if(lines.startsWith("** ")){
-                    
-                }
-                else if(lines.startsWith("#")){
-                    
-                }
-                else if(lines.startsWith("## ")){
-                    
+                else {
+                    ListIthem ls = new ListIthem(lines);
+                    s.addElement(ls.marcadores());
                 }
             }
         } catch (IOException e) {
