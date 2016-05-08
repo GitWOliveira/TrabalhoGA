@@ -3,7 +3,6 @@ package SlideViewer;
 public class ListIthem extends Element {
     private boolean numbered;
     private int order;
-    private char vetorLetras[] = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
 
     public ListIthem(String e) {
         super(e);
@@ -26,20 +25,21 @@ public class ListIthem extends Element {
         this.order = order;
     }    
     
-    public String marcadores(String line){
-        int numerador=0, i=0;
-        char letras = 'i';        
+    public String marcadores(){
+        int numerador=0;
+        int letra =97;
+        char letras = (char)letra;
+        String line = super.getText();
         
             if(line.startsWith("#")){
                numerador = numerador++;
-               line = numerador + line.substring(1);
+               line = numerador + " " + line.substring(1);
             }
             //Usar a notação ASCCI para obter as lettras, sendo que 65 é "A", podemos ir adicionando de acordo com o order.
             else if(line.startsWith("## ")){
-               letras = vetorLetras[order];
-               line = "/t" + Character.toString(letras) + line.substring(3);
+               line = "/t" + Character.toString(letras) + " " + line.substring(2);
             }
-            else if(line.startsWith("** ")){
+            else if(line.startsWith(" ",2)){
                 line = "/t" + line;
             }
             return line;
