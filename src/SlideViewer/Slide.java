@@ -24,8 +24,8 @@ public class Slide implements Printable {
         }
         //Caso seja necessário adicionar mais um elemento
         catch(ArrayIndexOutOfBoundsException e){
-           //Copia os elementos atuais para swap. 
            Element[] swap = new Element[elem.length];
+           //Copia os elementos atuais para swap. 
            swap = elem;
            //Criar um array com mais 1 espaço vazio;
            elem = new Element[++contEle];
