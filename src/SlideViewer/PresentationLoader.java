@@ -141,17 +141,28 @@ public class PresentationLoader {
     public void readContend(BufferedReader in,Slide s){
         String lines;
         int cont =1;
+        //Numero que será usadado pra imprimir as letras, 97 é o ASCII de a.
+        int let = 97;
         try{
             while ((lines = in.readLine()) != null){
                 if("/content".equals(lines)){
                     break;
                 }
-                else {
+                //Quando há letras
+                else if(lines.startsWith("#",1)){
+                    ListIthem ls = new ListIthem(lines);
+                    ls.setOrder(let);
+                    s.addElement(ls.marcadores());
+                    let++;
+                }
+                //Apenas numeração
+                else{
                     ListIthem ls = new ListIthem(lines);
                     ls.setOrder(cont);
                     s.addElement(ls.marcadores());
                     cont++;
                 }
+
             }
         } catch (IOException e) {
                 System.out.println("Erro na leitura do arquivo.");
