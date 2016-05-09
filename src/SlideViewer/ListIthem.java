@@ -27,19 +27,19 @@ public class ListIthem extends Element {
     
     public String marcadores(){
         String line = super.getText();
-        
-            if(line.startsWith("#")){
+            if(line.startsWith("#",0) && line.startsWith(" ",2)){
+               char letras = (char)order;
+               line = "\t " + letras + ") " + line.substring(3);
+            }
+            else if(line.startsWith(" ",2) && line.startsWith("*",0)){
+                line = "\t " + line;
+            }
+            else if(line.startsWith("#")){
                line = order + ". " + line.substring(1);
             }
             //Usar a notação ASCCI para obter as lettras, sendo que 65 é "A", podemos ir adicionando de acordo com o order.
-            else if(line.startsWith("#",1)){
-               int letra =97;
-               char letras = (char)letra;
-               line = "/t" + Character.toString(letras) + " " + line.substring(2);
-            }
-            else if(line.startsWith(" ",2)){
-                line = "/t" + line;
-            }
+
+
             return line;
         }
 }
