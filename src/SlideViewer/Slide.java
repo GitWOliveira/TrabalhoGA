@@ -20,7 +20,8 @@ public class Slide implements Printable {
         try{
             //Add um elemento no espaço
             elem[contEle] = new Element(texto);
-            contEle++;
+            System.out.println(getElem(contEle).print());
+            contEle++;        
         }
         //Caso seja necessário adicionar mais um elemento
         catch(ArrayIndexOutOfBoundsException e){
@@ -33,6 +34,7 @@ public class Slide implements Printable {
            System.arraycopy(swap, 0, elem, 0, swap.length);
            //Adiciona o elemento desejado no novo espaço.
            elem[contEle - 1] = new Element(texto);
+           System.out.println(getElem(contEle - 1).print());
         }
         catch(Exception e){
             System.out.println("Erro ao adicionar o elemento");
