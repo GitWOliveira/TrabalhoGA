@@ -58,21 +58,14 @@ public class Slide implements Printable {
         this.style = style;
     }
    
-   public String print(){
-        String[][] matriz = new String[20][80];
-        
-        for(int linha=0; linha<matriz.length; linha++){
-            for(int coluna=0; coluna<matriz[linha].length; coluna++){
-                matriz[linha][coluna] = "";
-                
-                if(linha == 0 || linha == 19)
-                    matriz[linha][coluna] = "-";
-                if( coluna == 0 || coluna == 79)
-                    matriz[linha][coluna] = "|";
-                
-                System.out.print(style.getBackgroundColor() + matriz[linha][coluna]);
-            }System.out.println();       
-        }return print();       
-   }
+    public String print(){
+        StringBuilder buffer = new StringBuilder();
+        buffer.append(style.getBackgroundColor() + "---------------------------------------------------------------------------------\n");
+        for(int i=0; i<19; i++){
+            buffer.append(style.getBackgroundColor() + "|                                                                               |\n");
+        } 
+        buffer.append(style.getBackgroundColor() + "---------------------------------------------------------------------------------\n");
+        return buffer.toString(); 
+    }
    
 }
