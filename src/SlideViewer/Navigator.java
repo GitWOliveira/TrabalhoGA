@@ -7,11 +7,9 @@ public class Navigator<E> {
     private int current;
     
     public Navigator(E[] el){
-        elements = (E[])new Object[el.length];
-        numElements = 0;
+        elements = el;
+        numElements = el.length;
     }
-    
-
     
     public void first(){
         if(elements == null)
@@ -51,13 +49,9 @@ public class Navigator<E> {
         }
     }
     
-    public Slide getCurrent(){
+    public int getCurrent(){
         if (current < 0  ||  current >= numElements)
             throw new IndexOutOfBoundsException();
-  	return (Slide)elements[current];
-    }
-    
-    public int getCurrentIndex(){
-        return current;
+  	return current;
     }
 }
