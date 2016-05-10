@@ -15,14 +15,12 @@ public class Navigator<E> {
     
     public void first(){
         if(elements == null)
-            throw new IndexOutOfBoundsException();        
-        getCurrent();        
+            throw new IndexOutOfBoundsException();              
     }
     
     public void next(){
         if(current < numElements){
             current += 1;
-            getCurrent();
         }
         else{
             throw new IllegalArgumentException("Não tem mais slides! "); 
@@ -32,7 +30,6 @@ public class Navigator<E> {
     public void previous(){
         if(current > 0){
             current -=1;
-            getCurrent();
         }
         else{
             throw new IllegalArgumentException("Não é possivel retroceder");
@@ -43,13 +40,11 @@ public class Navigator<E> {
         if(elements == null)
             throw new IndexOutOfBoundsException();
         current = numElements;
-        getCurrent();
     }
     
     public void Goto(int index){
         if(index > 0 && index < numElements){
             current = index;
-            getCurrent();
         }
         else{
          throw new IllegalArgumentException("Não é possivel se mover para essa posição");  
