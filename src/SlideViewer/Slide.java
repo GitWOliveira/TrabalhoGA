@@ -20,7 +20,6 @@ public class Slide implements Printable {
         try{
             //Add um elemento no espaço
             elem[contEle] = new Element(texto);
-            System.out.println(getElem(contEle).print());
             contEle++;        
         }
         //Caso seja necessário adicionar mais um elemento
@@ -34,7 +33,6 @@ public class Slide implements Printable {
            System.arraycopy(swap, 0, elem, 0, swap.length);
            //Adiciona o elemento desejado no novo espaço.
            elem[contEle - 1] = new Element(texto);
-           System.out.println(getElem(contEle - 1).print());
         }
         catch(Exception e){
             System.out.println("Erro ao adicionar o elemento");
@@ -60,11 +58,16 @@ public class Slide implements Printable {
    
     public String print(){
         StringBuilder buffer = new StringBuilder();
-        buffer.append(style.getBackgroundColor() + "---------------------------------------------------------------------------------\n");
+        String barraLat = "---------------------------------------------------------------------------------\n";
+        String barraTop = "|                                                                               |\n";
+        buffer.append(style.getBackgroundColor());
+        buffer.append(barraLat);
         for(int i=0; i<19; i++){
-            buffer.append(style.getBackgroundColor() + "|                                                                               |\n");
+            buffer.append(style.getBackgroundColor());
+            buffer.append(barraTop);
         } 
-        buffer.append(style.getBackgroundColor() + "---------------------------------------------------------------------------------\n");
+        buffer.append(style.getBackgroundColor());
+        buffer.append(barraLat);
         return buffer.toString(); 
     }
    
