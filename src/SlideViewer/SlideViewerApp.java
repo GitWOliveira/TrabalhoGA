@@ -33,6 +33,8 @@ public class SlideViewerApp {
                 }catch (NullPointerException ex) {
                     JOptionPane.showMessageDialog(null, ex);
                     op = -1;
+                }catch (Exception ex){
+                    JOptionPane.showMessageDialog(null, ex);
                 }
             }while (op != 0);
             
