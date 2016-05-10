@@ -9,7 +9,7 @@ public class SlideViewerApp {
           Presentation pp = pl.loader("presentation.txt");    
           SlideDesigner sd = new SlideDesigner();
           Navigator nav = new Navigator(pp.getSlides());
-            
+          System.out.println(sd.drawSlide(pp.getSlide(nav.getCurrent()), nav.getCurrent(), pp.getFoo()));
             
             int op = 0;
             do {
@@ -18,13 +18,16 @@ public class SlideViewerApp {
                     switch (op) {
                         case 1:
                                 nav.previous();
+                                System.out.println(sd.drawSlide(pp.getSlide(nav.getCurrent()), nav.getCurrent(), pp.getFoo()));
                             break;
                         case 2:
                                 nav.next();
+                                System.out.println(sd.drawSlide(pp.getSlide(nav.getCurrent()), nav.getCurrent(), pp.getFoo()));
                             break;
                         case 3:
                             int num = ReadData.readInt("Numero do slide: ");                            
                                 nav.Goto(num);
+                                System.out.println(sd.drawSlide(pp.getSlide(nav.getCurrent()), nav.getCurrent(), pp.getFoo()));
                         case 0:
                             break;                        
                     }                    
