@@ -3,13 +3,24 @@ package SlideViewer;
 public class SlideDesigner {
     
     public String drawSlide(Slide slide,int page,Footer footer){
-        
-        return "";
+        StringBuilder drawAll = new StringBuilder();
+
+        drawAll.append(drawTitle(slide.getTitle(),slide.getStyle()));   
+        drawBody(slide);
+        drawFooter(footer,page);
+        return drawAll.toString();
     }
     
-    private String drawTitle(Title title){
+    private String drawTitle(Title title,Style s){
+        StringBuilder t = new StringBuilder();
         
-        return "";
+        t.append(s.getBackgroundColor());
+        t.append(s.getTextColor());
+        t.append(title.print());
+        t.append(s.getBackgroundColor());
+        t.append(s.getTextColor());
+        
+        return t.toString();
     }
     
     private String drawBody(Slide slide){
