@@ -66,12 +66,13 @@ public class Slide implements Printable {
                 matriz[linha][coluna] = "";
                 
                 if(linha == 0 || linha == 19)
-                    System.out.print("_ ");
-                if(linha == 1 && coluna == 0 || linha == 79 && coluna == 0)
-                    System.out.println("|");
-            }       
-        }return print();
-       
+                    matriz[linha][coluna] = "-";
+                if( coluna == 0 || coluna == 79)
+                    matriz[linha][coluna] = "|";
+                
+                System.out.print(style.getBackgroundColor() + matriz[linha][coluna]);
+            }System.out.println();       
+        }return print();       
    }
    
 }
