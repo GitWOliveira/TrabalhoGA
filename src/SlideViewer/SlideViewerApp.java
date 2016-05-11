@@ -37,7 +37,7 @@ public class SlideViewerApp {
                     JOptionPane.showMessageDialog(null, ex);
                     op = -1;
                 }catch (Exception ex){
-                    JOptionPane.showMessageDialog(null, ex);
+                    JOptionPane.showMessageDialog(null, "A apresentação acabou, digite 0 para sair");
                 }         
             }while (op != 0);
             
