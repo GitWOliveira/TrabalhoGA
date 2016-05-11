@@ -16,7 +16,7 @@ public class Style {
     
     private String convertTextColor(String cor) {
         if (cor.equalsIgnoreCase("black")) {
-            return "\u001B[30m";
+            return "\u001b[0;30m";
         } else if (cor.equalsIgnoreCase("blue")) {
             return "\u001B[34m";
         } else if (cor.equalsIgnoreCase("yellow")) {
@@ -34,7 +34,7 @@ public class Style {
     
     private String convertBackColor(String cor){
         if (cor.equalsIgnoreCase("black")) {
-            return "\u001B[40m";
+            return "\u001b[41m";
         } else if (cor.equalsIgnoreCase("blue")) {
             return "\u001B[44m";
         } else if (cor.equalsIgnoreCase("yellow")) {
@@ -44,7 +44,7 @@ public class Style {
         } else if (cor.equalsIgnoreCase("dark_blue")) {
             return "\u001B[1;44m";
         } else if (cor.equalsIgnoreCase("dark_gray")) {
-            return "\u001B[1;57m";
+            return "\u001B[1;47m";
         } else {
             return "Cor Invalida ";
         }
