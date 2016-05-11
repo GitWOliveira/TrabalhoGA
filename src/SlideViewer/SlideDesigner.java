@@ -7,18 +7,18 @@ public class SlideDesigner {
         
         String bordaSup = "---------------------------------------------------------------------------------\n";
         String bordaLat = "|                                                                                |\n";
-        drawAll.append(getBackColor(""));
+        drawAll.append(slide.getBackground());
         drawAll.append(bordaSup);
+        drawAll.append(drawTitle(slide.getTitle(),slide.getStyle()));       
+        drawBody(slide);
+        drawFooter(footer,page);
         
         for(int i=0; i<19; i++){
-            drawAll.append(getBackColor(""));
-            drawAll.append(bordaLat);
-            drawAll.append(drawTitle(slide.getTitle(),slide.getStyle()));       
-            drawBody(slide);
-            drawFooter(footer,page);
+            drawAll.append(slide.getBackground());
+            drawAll.append(bordaLat);            
         } 
         
-        drawAll.append(getBackColor(bordaLat));
+        drawAll.append(slide.getBackground());
         drawAll.append(bordaSup);  
         
         return drawAll.toString();
@@ -44,15 +44,5 @@ public class SlideDesigner {
     private String drawFooter(Footer footer,int page){
         
         return "";
-    }
-    
-    private String getTextColor(String name){
-        
-        return "";
-    }
-    
-    private String getBackColor(String name){
-        
-        return "";
-    }
+    }  
 }
