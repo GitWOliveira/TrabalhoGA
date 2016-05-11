@@ -40,11 +40,11 @@ public class Style {
         } else if (cor.equalsIgnoreCase("yellow")) {
             return "\u001B[43m";
         } else if (cor.equalsIgnoreCase("white")) {
-            return "\u001B[37m";
+            return "\u001B[47m";
         } else if (cor.equalsIgnoreCase("dark_blue")) {
             return "\u001B[1;44m";
         } else if (cor.equalsIgnoreCase("dark_gray")) {
-            return "\u001B[1;47m";
+            return "\u001B[1;57m";
         } else {
             return "Cor Invalida ";
         }
