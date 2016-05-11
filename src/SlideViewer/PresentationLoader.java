@@ -30,7 +30,7 @@ public class PresentationLoader {
                 else if("/presentation".equals(line)){
                    break;                 
                 }
-                else if("presentation".equals(line)){
+                else if(line.contains("presentation")){
                     p = new Presentation(2,slides);
                 }
                 //Montando style
@@ -126,7 +126,7 @@ public class PresentationLoader {
                 }
                 else if(lines.startsWith("0") || lines.startsWith("1")){
                     /*Seta o Style de s, pegando os style armazenados no presentation 0 ou 1*/
-                    s.setStyle(p.getStyle(Integer.parseInt(lines.substring(0,1))));
+                    s.setStyle(p.getStyle(Integer.parseInt(lines.substring(7))-1));
                 }
                 else if("content".equals(lines)){
                     readContend(in,s);
