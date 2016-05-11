@@ -4,10 +4,23 @@ public class SlideDesigner {
     
     public String drawSlide(Slide slide,int page,Footer footer){
         StringBuilder drawAll = new StringBuilder();
-
-        drawAll.append(drawTitle(slide.getTitle(),slide.getStyle()));   
-        drawBody(slide);
-        drawFooter(footer,page);
+        
+        String bordaSup = "---------------------------------------------------------------------------------\n";
+        String bordaLat = "|                                                                                |\n";
+        drawAll.append(getBackColor(""));
+        drawAll.append(bordaSup);
+        
+        for(int i=0; i<19; i++){
+            drawAll.append(getBackColor(""));
+            drawAll.append(bordaLat);
+            drawAll.append(drawTitle(slide.getTitle(),slide.getStyle()));       
+            drawBody(slide);
+            drawFooter(footer,page);
+        } 
+        
+        drawAll.append(getBackColor(bordaLat));
+        drawAll.append(bordaSup);  
+        
         return drawAll.toString();
     }
     
