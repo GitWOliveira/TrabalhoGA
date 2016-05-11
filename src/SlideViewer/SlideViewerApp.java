@@ -38,11 +38,11 @@ public class SlideViewerApp {
                     op = -1;
                 }catch (Exception ex){
                     JOptionPane.showMessageDialog(null, ex);
-                }
+                }         
             }while (op != 0);
             
             } catch (Exception ex) {
-                System.out.println(ex);
+                System.out.println("Erro ao criar a apresentação.");
         }
         
     } 
