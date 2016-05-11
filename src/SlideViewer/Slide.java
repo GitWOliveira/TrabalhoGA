@@ -40,6 +40,10 @@ public class Slide implements Printable {
 
     }
     
+    public String getBackground(){
+        return style.getBackgroundColor();
+    }
+    
     public Title getTitle() {
         return title;
     }
